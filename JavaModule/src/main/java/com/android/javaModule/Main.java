@@ -1,4 +1,4 @@
-package com.android.javamodule;
+package com.android.javaModule;
 
 public class Main {
     private String name;

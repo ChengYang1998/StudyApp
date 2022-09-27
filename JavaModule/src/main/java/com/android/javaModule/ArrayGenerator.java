@@ -1,4 +1,4 @@
-package com.android.javamodule;
+package com.android.javaModule;
 
 import java.util.Random;
 

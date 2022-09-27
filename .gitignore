@@ -8,6 +8,7 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/JavaModule/src/main/java/com/android/javaModule/leetcode
 .DS_Store
 /build
 /captures

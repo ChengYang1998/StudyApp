@@ -1,4 +1,4 @@
-package com.android.javamodule;
+package com.android.javaModule;
 
 /**
  * author : cy
@@ -30,10 +30,12 @@ public class SelectionSortInt {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 4, 2, 3, 6, 5};
-        SelectionSortInt.sort(arr);
-        for (int e : arr) {
-            System.out.println(e + "");
+        int[] dataSize = {10000, 100000};
+        for (int n : dataSize) {
+            Integer[] arr = ArrayGenerator.generateRandomArray(n, n);
+            SortingHelper.sortTest("SelectionSort", arr);
         }
+
+
     }
 }

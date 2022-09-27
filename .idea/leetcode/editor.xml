@@ -14,6 +14,17 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[2418]按身高排序.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/doc/content/[2418]按身高排序.md" />
+              <option name="frontendQuestionId" value="leetcode.cn2418" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/[2418]按身高排序.java" />
+              <option name="titleSlug" value="sort-the-people" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[剑指 Offer 04]二维数组中的查找.java">
           <value>
             <LeetcodeEditor>
@@ -33,6 +44,28 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[面试题 10.05]稀疏数组搜索.java" />
               <option name="titleSlug" value="sparse-array-search-lcci" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/[2418]按身高排序.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/doc/content/[2418]按身高排序.md" />
+              <option name="frontendQuestionId" value="leetcode.cn2418" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/[2418]按身高排序.java" />
+              <option name="titleSlug" value="sort-the-people" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/[9]回文数.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/doc/content/[9]回文数.md" />
+              <option name="frontendQuestionId" value="leetcode.cn9" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/JavaModule/src/main/java/com/android/javaModule/leetcode/editor/cn/[9]回文数.java" />
+              <option name="titleSlug" value="palindrome-number" />
             </LeetcodeEditor>
           </value>
         </entry>
