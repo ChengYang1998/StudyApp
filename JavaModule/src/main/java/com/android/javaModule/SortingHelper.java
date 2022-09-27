@@ -20,10 +20,13 @@ public class SortingHelper {
 
     }
 
+
     public static <E extends Comparable> void sortTest(String sortName, E[] arr) {
         long startTime = System.nanoTime();
         if (sortName.equals("SelectionSort")) {
             SelectionSort.sort(arr);
+        } else if (sortName.equals("InsertionSort")) {
+            InsertionSort.sort(arr);
         }
         long endTime = System.nanoTime();
 
