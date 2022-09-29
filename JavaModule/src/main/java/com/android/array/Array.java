@@ -61,7 +61,10 @@ public class Array<E> {
      */
     public void add(int index, E e) {
         if (size == data.length) {
-            throw new IllegalArgumentException("Array is full");
+//            throw new IllegalArgumentException("Array is full");
+            resize(2 * data.length);
+
+
         }
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("index < 0 || index > size");
@@ -73,6 +76,20 @@ public class Array<E> {
         }
         data[index] = e;
         size++;
+    }
+
+    /**
+     * 动态数组
+     *
+     * @param newCapacity 新数组容量
+     */
+    @SuppressWarnings("unchecked")
+    private void resize(int newCapacity) {
+        E[] newData = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
     @Override
@@ -153,6 +170,10 @@ public class Array<E> {
         }
         size--;
         data[size] = null;
+
+        if (size == data.length / 2) {
+            resize(data.length / 2);
+        }
         return ret;
     }
 
