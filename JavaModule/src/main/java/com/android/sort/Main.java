@@ -1,4 +1,4 @@
-package com.android.javaModule;
+package com.android.sort;
 
 public class Main {
     private String name;
