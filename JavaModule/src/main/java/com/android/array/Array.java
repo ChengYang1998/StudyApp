@@ -5,8 +5,8 @@ package com.android.array;
  * time   : 2022/9/28
  * desc   :
  */
-public class Array {
-    private int[] data;
+public class Array<E> {
+    private E[] data;
     private int size;
 
     /**
@@ -14,8 +14,9 @@ public class Array {
      *
      * @param capacity
      */
+    @SuppressWarnings("unchecked")
     public Array(int capacity) {
-        data = new int[capacity];
+        data = (E[]) new Object[capacity];
         size = 0;
     }
 
@@ -44,11 +45,11 @@ public class Array {
         return size == 0;
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
-    public void addLast(int e) {
+    public void addLast(E e) {
         add(size, e);
     }
 
@@ -58,7 +59,7 @@ public class Array {
      * @param index
      * @param e
      */
-    public void add(int index, int e) {
+    public void add(int index, E e) {
         if (size == data.length) {
             throw new IllegalArgumentException("Array is full");
         }
@@ -89,12 +90,12 @@ public class Array {
         return res.toString();
     }
 
-    public int[] getData() {
+    public E[] getData() {
 
         return data;
     }
 
-    public int get(int index) {
+    public E get(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index < 0 || index > size");
         }
@@ -102,7 +103,7 @@ public class Array {
         return data[index];
     }
 
-    public void set(int index, int e) {
+    public void set(int index, E e) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index < 0 || index > size");
         }
@@ -114,9 +115,9 @@ public class Array {
      * @param e
      * @return 数组是否包含元素e
      */
-    public boolean contains(int e) {
+    public boolean contains(E e) {
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 return true;
             }
         }
@@ -127,9 +128,9 @@ public class Array {
      * @param e
      * @return 数组中元素e的索引, 不存在则返回-1
      */
-    public int find(int e) {
+    public int find(E e) {
         for (int i = 0; i < size; i++) {
-            if (data[i] == e) {
+            if (data[i].equals(e)) {
                 return i;
             }
         }
@@ -139,25 +140,27 @@ public class Array {
     /**
      * 从数组中删除index位置的元素
      *
-     * @param index
+     * @param index 删除index位置的元素
      * @return 删除的元素
      */
-    public int remove(int index) {
+    public E remove(int index) {
         if (index < 0 || index >= size) {
             throw new IllegalArgumentException("index < 0 || index > size");
         }
-        int ret = data[index];
+        E ret = data[index];
         for (int i = index + 1; i < size; i++) {
             data[i - 1] = data[i];
         }
+        size--;
+        data[size] = null;
         return ret;
     }
 
-    public int removeFirst() {
+    public E removeFirst() {
         return remove(0);
     }
 
-    public int removeLast() {
+    public E removeLast() {
         return remove(size - 1);
     }
 
@@ -166,7 +169,7 @@ public class Array {
      *
      * @param e
      */
-    public void removeElement(int e) {
+    public void removeElement(E e) {
         int index = find(e);
         if (index != -1) {
             remove(index);
