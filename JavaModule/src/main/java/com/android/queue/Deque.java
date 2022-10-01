@@ -3,7 +3,7 @@ package com.android.queue;
 /**
  * author : cy
  * time   : 2022/9/30
- * desc   : 双端队列
+ * desc   : 双端队列实现 目前有错误
  */
 public class Deque<E> {
 
@@ -60,13 +60,17 @@ public class Deque<E> {
     }
 
     public void addLast(E e) {
-        if (size == getCapacity()) {
+        if(size == getCapacity()){
             resize(getCapacity() * 2);
         }
 
+        if (data[tail] != null){
+            tail = (tail + 1) % getCapacity();
+        }
         data[tail] = e;
-        tail = (tail + 1) % getCapacity();
-        size++;
+        size ++;
+
+
     }
 
     public E removeFront() {
@@ -126,7 +130,7 @@ public class Deque<E> {
             throw new RuntimeException("Deque si empty.");
         }
         if (tail - 1 < 0) {
-            return data[data.length - 1];
+            return data[size - 1];
         } else {
             return data[tail - 1];
         }
@@ -151,29 +155,14 @@ public class Deque<E> {
 
     public static void main(String[] args) {
 
-        Deque<Integer> deque = new Deque<>(10);
+        Deque<Integer> deque = new Deque<>(5);
+        System.out.println(deque);
+        deque.addFront(7);
+        System.out.println(deque);
+        deque.addLast(0);
+        System.out.println(deque);
+        System.out.println(deque.getLast() );
 
-        for (int i = 0; i < 10; i++) {
-            if (i % 2 == 0) {
-                deque.addLast(i);
-                System.out.println("当前添加元素：" + deque.getLast());
-
-            } else {
-                deque.addFront(i);
-                System.out.println("当前添加元素： " + deque.getFront());
-
-            }
-            System.out.println(deque);
-
-            if (i % 3 == 2) {
-                if (i % 2 == 0) {
-                    deque.removeLast();
-                } else {
-                    deque.removeFront();
-                }
-                System.out.println(deque);
-            }
-        }
 
     }
 }
