@@ -3,166 +3,108 @@ package com.android.queue;
 /**
  * author : cy
  * time   : 2022/9/30
- * desc   : 双端队列实现 目前有错误
+ * desc   : 双端队列实现 [无泛型] [浪费一个空间] [无扩容]
  */
-public class Deque<E> {
+class Deque {
 
-    private E[] data;
-    private int front, tail;
-    private int size;
+    public int[] data;
+    public int front, rear;
 
-    @SuppressWarnings("unchecked")
-    public Deque(int capacity) {
-        data = (E[]) new Object[capacity];
-        front = 0;
-        tail = 0;
-        size = 0;
+    public Deque(int k) {
+        this.data = new int[k + 1];
     }
 
-    public int getCapacity() {
-        return data.length;
+
+    public boolean insertFront(int value) {
+        if (isFull()) {
+            return false;
+        }
+        //此处front - 1 + data.length 为了防止数组下标为负数
+        front = (front - 1 + data.length) % data.length;
+        data[front] = value;
+        return true;
     }
 
-    public int getSize() {
-        return size;
+    public boolean insertLast(int value) {
+        if (isFull()) {
+            return false;
+        }
+        data[rear] = value;
+        rear = (rear + 1) % data.length;
+        return true;
+    }
+
+    public boolean deleteFront() {
+        if (isEmpty()) {
+            return false;
+        }
+        data[front] = 0;
+
+        front = (front + 1) % data.length;
+        return true;
+
+    }
+
+    public boolean deleteLast() {
+        if (isEmpty()) {
+            return false;
+        }
+        rear = (rear - 1 + data.length) % data.length;
+        return true;
+    }
+
+
+    public int getFront() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return data[front];
+
+    }
+
+    public int getRear() {
+        if (isEmpty()) {
+            return -1;
+        }
+        int index = (rear - 1 + data.length) % data.length;
+        return data[index];
+
     }
 
     public boolean isEmpty() {
-        return size == 0;
+        if (front == rear) {
+            return true;
+        }
+        return false;
     }
 
-
-    @SuppressWarnings("unchecked")
-    private void resize(int newCapacity) {
-        E[] newData = (E[]) new Object[newCapacity];
-        /*
-        遍历循环队列
-         */
-        for (int i = 0; i < size; i++) {
-            newData[i] = data[(i + front) % data.length];
+    /**
+     * 浪费一个空间不存的,所以此处用 rear循环+1 应该等于 front 判断队满
+     */
+    public boolean isFull() {
+        if ((rear + 1) % data.length == front) {
+            return true;
         }
-        data = newData;
-        front = 0;
-        tail = size;
+        return false;
     }
 
-    public void addFront(E e) {
-        if (size == getCapacity()) {
-            resize(getCapacity() * 2);
-        }
-
-        if (data[front] != null) {
-            //   front = front - 1 >= 0 ? front - 1 : front - 1 + data.length;
-            front = front == 0 ? data.length - 1 : front - 1;
-        }
-        data[front] = e;
-        size++;
-    }
-
-    public void addLast(E e) {
-        if(size == getCapacity()){
-            resize(getCapacity() * 2);
-        }
-
-        if (data[tail] != null){
-            tail = (tail + 1) % getCapacity();
-        }
-        data[tail] = e;
-        size ++;
-
-
-    }
-
-    public E removeFront() {
-        if (isEmpty()) {
-            throw new RuntimeException("RemoveFront failed. Cannot remove from a empty deque.");
-        }
-        E ret = data[front];
-        data[front] = null;
-        size--;
-        if (!isEmpty()) {
-            front = (front + 1) % data.length;
-        }
-
-        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
-            resize(getCapacity() / 2);
-        }
-        return ret;
-    }
-
-    public E removeLast() {
-        if (isEmpty()) {
-            throw new RuntimeException("RemoveLast failed. Cannot remove from a empty deque.");
-        }
-        E ret = null;
-        size--;
-        //想找最后一个元素，要看 tail 前一个位置的元素，即 tail - 1 位置的元素。
-        // 但如果 tail 为 0，tail - 1 为负数，
-        // 此时，前一个位置的元素实际上在 data.length - 1 的位置，所以要做一个判断。
-        if (!isEmpty()) {
-            if (tail - 1 != -1) {
-
-                ret = data[tail - 1];
-                data[tail - 1] = null;
-                tail = tail - 1;
-            } else {
-                ret = data[data.length - 1];
-                data[data.length - 1] = null;
-                tail = data.length - 1;
-            }
-        }
-        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
-            resize(getCapacity() / 2);
-        }
-        return ret;
-    }
-
-
-    public E getFront() {
-        if (isEmpty()) {
-            throw new RuntimeException("Deque si empty.");
-        }
-        return data[front];
-    }
-
-    public E getLast() {
-        if (isEmpty()) {
-            throw new RuntimeException("Deque si empty.");
-        }
-        if (tail - 1 < 0) {
-            return data[size - 1];
-        } else {
-            return data[tail - 1];
-        }
-
-    }
-
-    @SuppressWarnings("DefaultLocale")
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append(String.format("Deque: size = %d, capacity = %d\n", size, data.length));
-        res.append("front [");
-        for (int i = 0; i < size; i++) {
-            res.append(data[(i + front) % data.length]);
-            if (i != size - 1) {
-                res.append(" ,");
-            }
+        for (int i = 0; i < data.length; i++) {
+            res.append(data[i]);
+            res.append(",");
         }
-        res.append("] tail");
+
         return res.toString();
     }
 
+
     public static void main(String[] args) {
-
-        Deque<Integer> deque = new Deque<>(5);
-        System.out.println(deque);
-        deque.addFront(7);
-        System.out.println(deque);
-        deque.addLast(0);
-        System.out.println(deque);
-        System.out.println(deque.getLast() );
-
-
+        Deque deque = new Deque(3);
+        deque.insertLast(1);
+        deque.insertLast(2);
+        deque.insertFront(3);
+        System.out.println(deque.toString());
     }
 }
