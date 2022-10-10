@@ -52,7 +52,6 @@ public class LinkedList<E> {
     public void add(int index, E e) {
         if (index < 0 || index > size) {
             throw new IllegalArgumentException("Illegal index");
-
         }
 
         Node prev = dummyHead;
@@ -65,8 +64,21 @@ public class LinkedList<E> {
         prev.next = new Node(e, prev.next);
 
         size++;
-
     }
+
+/*
+    向链表index(0-based)位置添加新元素e,递归算法
+    private Node add(Node node, int index, E e) {
+        if (index < 0 || index > size) {
+            throw new IllegalArgumentException("Illegal index");
+        }
+        if (index == 0) {
+            return new Node(e, node);
+        }
+        node.next = add(node.next, index - 1, e);
+        return node;
+    }
+*/
 
     //向链表头添加元素e
     public void addFirst(E e) {
