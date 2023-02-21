@@ -1,5 +1,7 @@
 package com.android.sort;
 
+import com.android.mergesort.MergeSort;
+
 /**
  * author : cy
  * time   : 2022/9/27
@@ -30,14 +32,18 @@ public class SortingHelper {
             InsertionSort.sort(arr);
         } else if (sortName.equals("InsertionSortOP")) {
             InsertionSortOP.sort(arr);
+        } else if (sortName.equals("MergeSort")) {
+            MergeSort.sort(arr);
+        } else if (sortName.equals("MergeSortBU")) {
+            MergeSort.sortBU(arr);
         }
         long endTime = System.nanoTime();
 
         double time = (endTime - startTime) / 1000000000.0;
         if (!SortingHelper.isSorted(arr)) {
             for (E in : arr) {
-            System.out.println(in);
-        }
+                System.out.println(in);
+            }
             throw new RuntimeException(sortName + " failed");
         }
         System.out.println(String.format("%s,n=%d:%f", sortName, arr.length, time));
