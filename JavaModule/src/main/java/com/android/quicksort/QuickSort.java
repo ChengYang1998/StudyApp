@@ -1,4 +1,4 @@
-package com.android.QuickSort;
+package com.android.quicksort;
 
 import com.android.sort.ArrayGenerator;
 import com.android.sort.SortingHelper;

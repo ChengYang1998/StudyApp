@@ -1,6 +1,6 @@
 package com.android.sort;
 
-import com.android.QuickSort.QuickSort;
+import com.android.quicksort.QuickSort;
 import com.android.mergesort.MergeSort;
 
 /**

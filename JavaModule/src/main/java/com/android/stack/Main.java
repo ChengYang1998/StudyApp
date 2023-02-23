@@ -1,4 +1,4 @@
-package com.android.Stack;
+package com.android.stack;
 
 /**
  * author : cy

@@ -1,4 +1,4 @@
-package com.android.test;
+package com.android.leetcode;
 
 import java.util.Random;
 
