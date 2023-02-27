@@ -50,10 +50,10 @@
         <entry key="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[215]数组中的第K个最大元素.java">
           <value>
             <LeetcodeEditor>
-              <option name="contentPath" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/doc/content/[215]数组中的第K个最大元素.md" />
+              <option name="contentPath" value="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/doc/content/[215]数组中的第K个最大元素.md" />
               <option name="frontendQuestionId" value="leetcode.cn215" />
               <option name="host" value="leetcode.cn" />
-              <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[215]数组中的第K个最大元素.java" />
+              <option name="path" value="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/[215]数组中的第K个最大元素.java" />
               <option name="titleSlug" value="kth-largest-element-in-an-array" />
             </LeetcodeEditor>
           </value>
@@ -121,6 +121,28 @@
               <option name="host" value="leetcode.cn" />
               <option name="path" value="$USER_HOME$/AppData/Local/Temp/leetcode/editor/cn/[剑指 Offer 51]数组中的逆序对.java" />
               <option name="titleSlug" value="shu-zu-zhong-de-ni-xu-dui-lcof" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/[215]数组中的第K个最大元素.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/doc/content/[215]数组中的第K个最大元素.md" />
+              <option name="frontendQuestionId" value="leetcode.cn215" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/[215]数组中的第K个最大元素.java" />
+              <option name="titleSlug" value="kth-largest-element-in-an-array" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/[704]二分查找.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/doc/content/[704]二分查找.md" />
+              <option name="frontendQuestionId" value="leetcode.cn704" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../demo/StudyApp/JavaModule/src/main/java/leetcode/editor/cn/[704]二分查找.java" />
+              <option name="titleSlug" value="binary-search" />
             </LeetcodeEditor>
           </value>
         </entry>
